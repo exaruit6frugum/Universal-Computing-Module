@@ -17,30 +17,32 @@ def handle_elementary_menu(user_option):
     """Обработчик ответа пользователя в меню элементарных операций"""
     try:
         user_option = int(user_option)
+
         if user_option == 0:
             return execute_exit()
         elif user_option == 1:
-            process_user_input(sum_nums, 2)
-            return "elementary_menu"
+            process_user_input(sum_nums, 2, "Сложение")
         elif user_option == 2:
-            return "elementary_menu"
+            process_user_input(difference_nums, 2, "Вычитание")
         elif user_option == 3:
-            return "elementary_menu"
+            process_user_input(prod_nums, 2, "Умножение")
         elif user_option == 4:
-            return "elementary_menu"
+            process_user_input(divide_nums, 2, "Деление")
         elif user_option == 5:
-            return "elementary_menu"
+            process_user_input(exponentiation_num, 2, "Возведение в степень")
         elif user_option == 6:
-            return "elementary_menu"
+            process_user_input(sqrt_num, 1, "Извлечение квадратного корня")
         elif user_option == 7:
-            return "elementary_menu"
+            process_user_input(cube_root_num, 1, "Извлечение кубического корня")
         elif user_option == 8:
             return "main_menu"
         else:
             raise ValueError
+
     except ValueError:
         print(f"\n{RED}Некорректный ввод: Введите только цифру от 0 до 8.{RESET}")
-        return "elementary_menu"
+
+    return "elementary_menu"
 
 
 def handle_finance_menu(user_option):

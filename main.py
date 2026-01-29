@@ -2,6 +2,7 @@ from menus import *
 from handlers import *
 
 def main():
+    """Главная функция программы. Бесконечный цикл открытия различных меню и приёма ответа от пользователя."""
     current_menu = "main_menu"
     next_menu = "main_menu"
     while True:
