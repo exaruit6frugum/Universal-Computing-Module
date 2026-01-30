@@ -1,6 +1,6 @@
-import sys
 from menus import *
-from computing_core import *
+from computing_blocks.elementary import *
+import sys
 
 RED = "\033[91m"
 GREEN = "\033[92m"
@@ -21,19 +21,19 @@ def handle_elementary_menu(user_option):
         if user_option == 0:
             return execute_exit()
         elif user_option == 1:
-            process_user_input(sum_nums, 2, "Сложение")
+            run_calculation(sum_nums, 2, "Сложение")
         elif user_option == 2:
-            process_user_input(difference_nums, 2, "Вычитание")
+            run_calculation(difference_nums, 2, "Вычитание")
         elif user_option == 3:
-            process_user_input(prod_nums, 2, "Умножение")
+            run_calculation(prod_nums, 2, "Умножение")
         elif user_option == 4:
-            process_user_input(divide_nums, 2, "Деление")
+            run_calculation(divide_nums, 2, "Деление")
         elif user_option == 5:
-            process_user_input(exponentiation_num, 2, "Возведение в степень")
+            run_calculation(exponentiation_num, 2, "Возведение в степень")
         elif user_option == 6:
-            process_user_input(sqrt_num, 1, "Извлечение квадратного корня")
+            run_calculation(sqrt_num, 1, "Извлечение квадратного корня")
         elif user_option == 7:
-            process_user_input(cube_root_num, 1, "Извлечение кубического корня")
+            run_calculation(cube_root_num, 1, "Извлечение кубического корня")
         elif user_option == 8:
             return "main_menu"
         else:
