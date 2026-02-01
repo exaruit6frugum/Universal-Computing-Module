@@ -5,7 +5,7 @@ GREEN = "\033[92m"
 BLUE = "\033[94m"
 RESET = "\033[0m"
 
-def run_calculation(func, num_of_numbers, type_of_operation):
+def run_calculation_elementary(func, num_of_numbers, type_of_operation):
     """Функция ввода данных от пользователя и их обработки вычислительной функцией"""
     word_form = "числа"
     if num_of_numbers == 1:
@@ -26,16 +26,11 @@ def run_calculation(func, num_of_numbers, type_of_operation):
             i += 1
         except ValueError:
             print(f"{RED}Некорректный ввод: Введите число.{RESET}")
-
     try:
         result = func(*nums)
         print(f"\n{GREEN}Операция успешно выполнена!{RESET}\n{BLUE}Результат: {result}{RESET}")
-
-    except ZeroDivisionError:
-        print(f"\n{RED}Ошибка: Деление на ноль.{RESET}")
-
-    except ValueError as e:
-        print(f"\n{RED}{e}{RESET}")
+    except Exception as error:
+        print(f"\n{RED}{error}{RESET}")
 
     print("-" * 100)
 
@@ -50,6 +45,8 @@ def prod_nums(first, second):
     return first * second
 
 def divide_nums(first, second):
+    if second == 0:
+        raise ZeroDivisionError("Ошибка: Деление на ноль/")
     return first / second
 
 def exponentiation_num(num, power):
