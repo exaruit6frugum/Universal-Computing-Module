@@ -1,5 +1,6 @@
-from menus import *
+from computing_blocks.statistics import *
 from computing_blocks.elementary import *
+from menus import *
 import sys
 
 RED = "\033[91m"
@@ -21,19 +22,19 @@ def handle_elementary_menu(user_option):
         if user_option == 0:
             return execute_exit()
         elif user_option == 1:
-            run_calculation(sum_nums, 2, "Сложение")
+            run_calculation_elementary(sum_nums, 2, "Сложение")
         elif user_option == 2:
-            run_calculation(difference_nums, 2, "Вычитание")
+            run_calculation_elementary(difference_nums, 2, "Вычитание")
         elif user_option == 3:
-            run_calculation(prod_nums, 2, "Умножение")
+            run_calculation_elementary(prod_nums, 2, "Умножение")
         elif user_option == 4:
-            run_calculation(divide_nums, 2, "Деление")
+            run_calculation_elementary(divide_nums, 2, "Деление")
         elif user_option == 5:
-            run_calculation(exponentiation_num, 2, "Возведение в степень")
+            run_calculation_elementary(exponentiation_num, 2, "Возведение в степень")
         elif user_option == 6:
-            run_calculation(sqrt_num, 1, "Извлечение квадратного корня")
+            run_calculation_elementary(sqrt_num, 1, "Извлечение квадратного корня")
         elif user_option == 7:
-            run_calculation(cube_root_num, 1, "Извлечение кубического корня")
+            run_calculation_elementary(cube_root_num, 1, "Извлечение кубического корня")
         elif user_option == 8:
             return "main_menu"
         else:
@@ -73,6 +74,7 @@ def handle_statistics_menu(user_option):
         if user_option == 0:
             return execute_exit()
         elif user_option == 1:
+            run_calculation_statistics(average_mean, "Среднее арифметическое")
             return "statistics_menu"
         elif user_option == 2:
             return "statistics_menu"
