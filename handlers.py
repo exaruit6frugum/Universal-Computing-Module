@@ -77,12 +77,11 @@ def handle_statistics_menu(user_option):
             run_calculation_statistics(average_mean, "Среднее арифметическое")
             return "statistics_menu"
         elif user_option == 2:
+            run_calculation_statistics(median_and_mode, "Медиана и мода для целых чисел")
             return "statistics_menu"
         elif user_option == 3:
             return "statistics_menu"
         elif user_option == 4:
-            return "statistics_menu"
-        elif user_option == 5:
             return "main_menu"
         else:
             raise ValueError
