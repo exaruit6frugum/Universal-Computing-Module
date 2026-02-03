@@ -3,14 +3,9 @@ from computing_blocks.elementary import *
 from menus import *
 import sys
 
-RED = "\033[91m"
-GREEN = "\033[92m"
-BLUE = "\033[94m"
-RESET = "\033[0m"
-
 def execute_exit():
     """Функция завершения программы"""
-    print(f"\n{BLUE}Завершение программы...{RESET}")
+    print(f"\n{BLUE}● Завершение программы...{RESET}")
     sys.exit()
 
 
@@ -41,8 +36,9 @@ def handle_elementary_menu(user_option):
             raise ValueError
 
     except ValueError:
-        print(f"\n{RED}Некорректный ввод: Введите только цифру от 0 до 8.{RESET}")
+        print(f"\n{RED}⚠ Некорректный ввод: Введите только цифру от 0 до 8.{RESET}")
 
+    input(f"\n{BLUE}● Нажмите Enter для возврата к меню...{RESET}")
     return "elementary_menu"
 
 
@@ -53,18 +49,20 @@ def handle_finance_menu(user_option):
         if user_option == 0:
             return execute_exit()
         elif user_option == 1:
-            return "finance_menu"
+            pass
         elif user_option == 2:
-            return "finance_menu"
+            pass
         elif user_option == 3:
-            return "finance_menu"
+            pass
         elif user_option == 4:
             return "main_menu"
         else:
             raise ValueError
     except ValueError:
-        print(f"\n{RED}Некорректный ввод: Введите только цифру от 0 до 4.{RESET}")
-        return "finance_menu"
+        print(f"\n{RED}⚠ Некорректный ввод: Введите только цифру от 0 до 4.{RESET}")
+
+    input(f"\n{BLUE}● Нажмите Enter для возврата к меню...{RESET}")
+    return "finance_menu"
 
 
 def handle_statistics_menu(user_option):
@@ -75,19 +73,19 @@ def handle_statistics_menu(user_option):
             return execute_exit()
         elif user_option == 1:
             run_calculation_statistics(average_mean, "Среднее арифметическое")
-            return "statistics_menu"
         elif user_option == 2:
             run_calculation_statistics(median_and_mode, "Медиана и мода для целых чисел")
-            return "statistics_menu"
         elif user_option == 3:
-            return "statistics_menu"
+            pass
         elif user_option == 4:
             return "main_menu"
         else:
             raise ValueError
     except ValueError:
-        print(f"\n{RED}Некорректный ввод: Введите только цифру от 0 до 5.{RESET}")
-        return "statistics_menu"
+        print(f"\n{RED}⚠ Некорректный ввод: Введите только цифру от 0 до 5.{RESET}")
+
+    input(f"\n{BLUE}● Нажмите Enter для возврата к меню...{RESET}")
+    return "statistics_menu"
 
 def handle_trigonometry_menu(user_option):
     """Обработчик ответа пользователя в меню элементарных операций"""
@@ -96,20 +94,22 @@ def handle_trigonometry_menu(user_option):
         if user_option == 0:
             return execute_exit()
         elif user_option == 1:
-            return "trigonometry_menu"
+            pass
         elif user_option == 2:
-            return "trigonometry_menu"
+            pass
         elif user_option == 3:
-            return "trigonometry_menu"
+            pass
         elif user_option == 4:
-            return "trigonometry_menu"
+            pass
         elif user_option == 5:
             return "main_menu"
         else:
             raise ValueError
     except ValueError:
-        print(f"\n{RED}Некорректный ввод: Введите только цифру от 0 до 5.{RESET}")
-        return "trigonometry_menu"
+        print(f"\n{RED}⚠ Некорректный ввод: Введите только цифру от 0 до 5.{RESET}")
+
+    input(f"\n{BLUE}● Нажмите Enter для возврата к меню...{RESET}")
+    return "trigonometry_menu"
 
 
 def handle_num_theory_menu(user_option):
@@ -119,22 +119,24 @@ def handle_num_theory_menu(user_option):
         if user_option == 0:
             return execute_exit()
         elif user_option == 1:
-            return "num_theory_menu"
+            pass
         elif user_option == 2:
-            return "num_theory_menu"
+            pass
         elif user_option == 3:
-            return "num_theory_menu"
+            pass
         elif user_option == 4:
-            return "num_theory_menu"
+            pass
         elif user_option == 5:
-            return "num_theory_menu"
+            pass
         elif user_option == 6:
             return "main_menu"
         else:
             raise ValueError
     except ValueError:
-        print(f"\n{RED}Некорректный ввод: Введите только цифру от 0 до 6.{RESET}")
-        return "num_theory_menu"
+        print(f"\n{RED}⚠ Некорректный ввод: Введите только цифру от 0 до 6.{RESET}")
+
+    input(f"\n{BLUE}● Нажмите Enter для возврата к меню...{RESET}")
+    return "num_theory_menu"
 
 def handle_num_systems_menu(user_option):
     """Обработчик ответа пользователя в меню элементарных операций"""
@@ -143,20 +145,22 @@ def handle_num_systems_menu(user_option):
         if user_option == 0:
             return execute_exit()
         elif user_option == 1:
-            return "num_systems_menu"
+            pass
         elif user_option == 2:
-            return "num_systems_menu"
+            pass
         elif user_option == 3:
-            return "num_systems_menu"
+            pass
         elif user_option == 4:
-            return "num_systems_menu"
+            pass
         elif user_option == 5:
             return "main_menu"
         else:
             raise ValueError
     except ValueError:
-        print(f"\n{RED}Некорректный ввод: Введите только две цифры от 1 до 4 или одну цифру для завершения программы/возвращения к главному меню.{RESET}")
-        return "num_systems_menu"
+        print(f"\n{RED}⚠ Некорректный ввод: Введите только две цифры от 1 до 4 или одну цифру для завершения программы/возвращения к главному меню.{RESET}")
+
+    input(f"\n{BLUE}● Нажмите Enter для возврата к меню...{RESET}")
+    return "num_systems_menu"
 
 
 def handle_main(user_option):
@@ -180,5 +184,5 @@ def handle_main(user_option):
         else:
             raise ValueError
     except ValueError:
-        print(f"\n{RED}Некорректный ввод: Введите только цифру от 0 до 6.{RESET}")
+        print(f"\n{RED}⚠ Некорректный ввод: Введите только цифру от 0 до 6.{RESET}")
         return "main_menu"

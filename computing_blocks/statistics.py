@@ -1,22 +1,19 @@
-RED = "\033[91m"
-GREEN = "\033[92m"
-BLUE = "\033[94m"
-RESET = "\033[0m"
+from colors import *
 
 def run_calculation_statistics(func, type_of_operation):
     """Функция ввода данных от пользователя и их обработки вычислительной функцией"""
     nums = []
-    print("\n" + "-" * 100)
+    print("\n\n" + "-" * 100)
     print(f"Операция: {BLUE}{type_of_operation}{RESET}")
 
     num_of_numbers = 0
     while num_of_numbers <= 0:
         try:
-            num_of_numbers = int(input("Введите количество чисел: "))
+            num_of_numbers = int(input("▶ Введите количество чисел: "))
             if num_of_numbers <= 0 or not isinstance(num_of_numbers, int):
                 raise ValueError
         except ValueError:
-            print(f"{RED}Некорректный ввод: Введите положительное целое число.{RESET}")
+            print(f"{RED}⚠ Некорректный ввод: Введите положительное целое число.{RESET}")
 
     word_form = "числа"
     if num_of_numbers == 1:
@@ -24,7 +21,7 @@ def run_calculation_statistics(func, type_of_operation):
     if num_of_numbers > 4:
         word_form = "чисел"
 
-    print(f"Введите {num_of_numbers} {word_form}:")
+    print(f"▶ Введите {num_of_numbers} {word_form}:")
 
     i = 0
     while i < num_of_numbers:
@@ -33,13 +30,13 @@ def run_calculation_statistics(func, type_of_operation):
             nums.append(float(user_input))
             i += 1
         except ValueError:
-            print(f"{RED}Некорректный ввод: Введите число.{RESET}")
+            print(f"{RED}⚠ Некорректный ввод: Введите число.{RESET}")
 
     try:
         result = func(nums)
-        print(f"\n{GREEN}Операция успешно выполнена!{RESET}\n{BLUE}Результат: {result}{RESET}")
+        print(f"\n{GREEN}✓ Операция успешно выполнена!{RESET}\n{BLUE}Результат: {result}{RESET}")
     except Exception as error:
-        print(f"\n{RED}{error}{RESET}")
+        print(f"\n{RED}⚠ {error}{RESET}")
 
     print("-" * 100)
 
