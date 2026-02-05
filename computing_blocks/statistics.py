@@ -1,7 +1,11 @@
 from colors import *
+import numpy as np
 
 def run_calculation_statistics(func, type_of_operation):
-    """Функция ввода данных от пользователя и их обработки вычислительной функцией"""
+    """Функция запуска вычислений категории 'Статистика' с пользовательским вводом.\n
+    Запрашивает у пользователя числа, передаёт их в вычислительную функцию и выводит результат.\n
+    Args: func, str."""
+
     nums = []
     print("\n\n" + "-" * 100)
     print(f"Операция: {BLUE}{type_of_operation}{RESET}")
@@ -21,8 +25,7 @@ def run_calculation_statistics(func, type_of_operation):
     if num_of_numbers > 4:
         word_form = "чисел"
 
-    print(f"▶ Введите {num_of_numbers} {word_form}:")
-
+    print(f"▶ Введите {num_of_numbers} {word_form}:\n")
     i = 0
     while i < num_of_numbers:
         try:
@@ -36,16 +39,14 @@ def run_calculation_statistics(func, type_of_operation):
         result = func(nums)
         print(f"\n{GREEN}✓ Операция успешно выполнена!{RESET}\n{BLUE}Результат: {result}{RESET}")
     except Exception as error:
-        print(f"\n{RED}⚠ {error}{RESET}")
+        print(f"\n{RED}⚠ Ошибка: {error}{RESET}")
 
     print("-" * 100)
 
 
 def average_mean(nums):
-    total = 0
-    for num in nums:
-        total += num
-    average = total / len(nums)
+    nums = np.array(nums)
+    average = np.sum(nums) / len(nums)
     return average
 
 def median_and_mode(nums):
@@ -55,7 +56,7 @@ def median_and_mode(nums):
     try:
         nums = [int(elem) for elem in nums]
     except ValueError:
-        raise ValueError("Ошибка: Данная операция поддерживается только для целых чисел.")
+        raise ValueError("Данная операция поддерживается только для целых чисел.")
 
     if length % 2 == 1:
         median = nums[length // 2]
@@ -63,8 +64,7 @@ def median_and_mode(nums):
         median = (nums[length // 2 - 1] + nums[length // 2]) / 2
 
     # Алгоритм нахождения моды (с учётом отрицательных чисел)
-    mode = []   # Мод может быть несколько
-
+    mode = []
     if nums[0] < 0:
         min_nums = abs(min(nums))
     else:
@@ -89,7 +89,6 @@ def median_and_mode(nums):
             add_num = index + index_shift - min_nums
         else:
             add_num = -(index + index_shift)
-
         mode.append(add_num)
         repetitions.pop(index)
         index_shift += 1
@@ -106,4 +105,12 @@ def median_and_mode(nums):
             result += f"{mode[i]}, "
         result = result[:-2]
 
+    return result
+
+def dispersion_and_deviation(nums):
+    nums = np.array(nums)
+    dispersion = average_mean(nums ** 2) - average_mean(nums) ** 2
+    deviation = np.sqrt(dispersion)
+
+    result = f"\nДисперсия: {dispersion:.4f}\nСтандартное отклонение: {deviation:.4f}"
     return result

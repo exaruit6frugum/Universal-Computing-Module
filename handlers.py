@@ -76,7 +76,7 @@ def handle_statistics_menu(user_option):
         elif user_option == 2:
             run_calculation_statistics(median_and_mode, "Медиана и мода для целых чисел")
         elif user_option == 3:
-            pass
+            run_calculation_statistics(dispersion_and_deviation, "Дисперсия и стандартное отклонение")
         elif user_option == 4:
             return "main_menu"
         else:

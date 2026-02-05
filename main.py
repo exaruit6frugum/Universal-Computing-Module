@@ -26,7 +26,7 @@ def main():
     while True:
         if current_menu == "main_menu":
             show_main_menu()
-            user_option = input(f"{GREEN}▶ Ввод:{RESET} ")
+            user_option = input(f"{GREEN}▶ Для выбора категории введите соответствующую цифру:{RESET} ")
             next_menu = handle_main(user_option)
 
         elif current_menu == "elementary_menu":
